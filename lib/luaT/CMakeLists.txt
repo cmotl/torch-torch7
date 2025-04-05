@@ -1,3 +1,14 @@
+# Can be compiled standalone
+IF(NOT TH_INSTALL_BIN_SUBDIR
+    OR NOT TH_INSTALL_LIB_SUBDIR
+    OR NOT TH_INSTALL_INCLUDE_SUBDIR
+    OR NOT TH_INSTALL_CMAKE_SUBDIR)
+
+  SET(TH_INSTALL_BIN_SUBDIR "bin" CACHE PATH "TH install binary subdirectory")
+  SET(TH_INSTALL_LIB_SUBDIR "lib" CACHE PATH "TH install library subdirectory")
+  SET(TH_INSTALL_INCLUDE_SUBDIR "include" CACHE PATH "TH install include subdirectory")
+  SET(TH_INSTALL_CMAKE_SUBDIR "share/cmake/TH" CACHE PATH "TH install cmake subdirectory")
+ENDIF()
 # avoid some cmake warnings
 IF(POLICY CMP0026)
  CMAKE_POLICY(SET CMP0026 OLD)
